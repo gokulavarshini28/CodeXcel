@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeXcel | Employee Intelligence Portal</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#08111f;color:#e8eef7}
+button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 10%,#15325d 0,#08111f 42%,#050b14 100%);padding:25px}
+.login-card{width:min(460px,100%);background:#0d1828;border:1px solid #24364e;border-radius:24px;padding:32px;box-shadow:0 24px 70px #0008}
+.logo{display:flex;gap:13px;align-items:center;margin-bottom:22px}.logo-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#5ee7ff,#6366f1);display:grid;place-items:center;color:#07101d;font-weight:900;font-size:20px}.logo h1{font-size:21px;margin:0}.muted{color:#91a1b7}.tabs{display:flex;background:#08111f;padding:4px;border-radius:12px;margin:22px 0}.tabs button{flex:1;border:0;background:transparent;color:#91a1b7;padding:11px;border-radius:9px}.tabs button.active{background:#1a2b42;color:#fff}.field{margin:14px 0}.field label{display:block;font-size:13px;color:#a9b7c9;margin-bottom:7px}.field input,.field select{width:100%;padding:12px 13px;background:#091321;border:1px solid #2a3b53;border-radius:10px;color:#fff;outline:0}.field input:focus,.field select:focus{border-color:#60a5fa}.password{display:flex;gap:8px}.password input{flex:1}.small-btn,.primary,.danger,.ghost{border:0;border-radius:10px;padding:11px 15px}.small-btn{background:#1a2b42;color:#dce8f7}.primary{background:linear-gradient(135deg,#4f8cff,#6d5dfc);color:#fff;font-weight:700}.danger{background:#7f1d2d;color:#fff}.ghost{background:#142235;color:#dbe7f5}.wide{width:100%}.error{color:#ff8e9d;background:#3b1720;border:1px solid #6b2736;padding:10px;border-radius:9px;margin-top:12px;font-size:13px}.demo{margin-top:18px;padding:12px;background:#0a1422;border:1px solid #1d3048;border-radius:12px;font-size:12px;line-height:1.7}
+.app{display:flex;min-height:100vh}.side{width:245px;background:#0a1422;border-right:1px solid #203148;padding:20px;position:fixed;inset:0 auto 0 0}.brand{display:flex;align-items:center;gap:10px;margin-bottom:28px}.brand .logo-mark{width:39px;height:39px;font-size:16px}.brand strong{font-size:16px}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;color:#93a5ba;padding:12px;border-radius:10px;margin:4px 0}.nav button.active,.nav button:hover{background:#172940;color:#fff}.side-bottom{position:absolute;bottom:20px;left:20px;right:20px}.user-mini{padding:12px;background:#101f32;border:1px solid #213650;border-radius:12px;margin-bottom:10px;font-size:12px}.main{margin-left:245px;width:calc(100% - 245px);padding:24px 30px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.top h2{margin:0 0 5px;font-size:25px}.top p{margin:0;color:#8293aa;font-size:13px}.top-actions{display:flex;gap:9px;align-items:center}.badge{padding:7px 10px;border-radius:999px;font-size:11px;background:#17304a;color:#9ed5ff}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:#0d1929;border:1px solid #20334c;border-radius:16px;padding:18px}.metric{font-size:26px;font-weight:800;margin-top:7px}.label{font-size:12px;color:#8192a9}.content-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}.toolbar input{flex:1;min-width:210px}.toolbar input,.toolbar select{background:#091321;color:#fff;border:1px solid #263951;border-radius:10px;padding:10px 12px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:760px}.table th,.table td{padding:13px 10px;border-bottom:1px solid #1c2b40;text-align:left;font-size:13px}.table th{color:#8192a9;font-size:11px;text-transform:uppercase}.status{padding:5px 8px;border-radius:999px;font-size:10px}.active-status{background:#12352a;color:#75e6b1}.inactive-status{background:#3b2028;color:#ff9aa8}.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:7px 9px;border:0;border-radius:8px;background:#172a42;color:#dbe8f7;font-size:11px}.actions .red{background:#3a1b25;color:#ffacb7}.section{margin-top:16px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section-title h3{margin:0;font-size:16px}.bars{display:flex;align-items:end;gap:13px;height:210px;padding:10px 5px}.bar-col{flex:1;text-align:center}.bar{margin:auto;width:42px;min-height:10px;background:linear-gradient(180deg,#63d9ff,#5368ff);border-radius:8px 8px 3px 3px}.bar-col span{display:block;font-size:10px;color:#7f91a8;margin-top:7px;white-space:nowrap}.profile{max-width:1050px}.profile-head{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:20px;background:linear-gradient(135deg,#132942,#0d1929);border:1px solid #2a4564;border-radius:18px}.avatar{width:65px;height:65px;border-radius:17px;background:linear-gradient(135deg,#5ee7ff,#635bff);display:grid;place-items:center;color:#06101c;font-size:23px;font-weight:900}.profile-id{display:flex;gap:15px;align-items:center}.profile-name{font-size:22px;font-weight:800}.profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:15px}.info{padding:15px;background:#0d1929;border:1px solid #20334c;border-radius:13px}.info small{display:block;color:#788ba3;margin-bottom:5px}.info b{font-size:14px}.modal{position:fixed;inset:0;background:#0009;display:grid;place-items:center;padding:20px;z-index:10}.modal-box{width:min(650px,100%);max-height:90vh;overflow:auto;background:#0d1929;border:1px solid #2b425f;border-radius:18px;padding:22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.close{float:right;background:#17273c;border:0;color:#fff;border-radius:8px;padding:6px 10px}
+.toast{position:fixed;right:20px;bottom:20px;background:#12263c;border:1px solid #315477;padding:12px 15px;border-radius:10px;display:none;z-index:30}
+@media(max-width:900px){.side{width:200px}.main{margin-left:200px;width:calc(100% - 200px);padding:18px}.grid{grid-template-columns:repeat(2,1fr)}.content-grid{grid-template-columns:1fr}.profile-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.side{position:static;width:100%;height:auto}.side-bottom{position:static;margin-top:20px}.app{display:block}.main{margin:0;width:100%}.grid,.profile-grid,.form-grid{grid-template-columns:1fr}.top{align-items:flex-start;gap:10px;flex-direction:column}}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+  <div class="login-card">
+    <div class="logo"><div class="logo-mark">CX</div><div><h1>CodeXcel</h1><div class="muted">Employee Intelligence Portal</div></div></div>
+    <div class="tabs"><button id="empTab" class="active" onclick="setLoginType('employee')">Employee</button><button id="adminTab" onclick="setLoginType('admin')">Administrator</button></div>
+    <form onsubmit="login(event)">
+      <div class="field"><label id="userLabel">Employee username</label><input id="username" placeholder="employee email" autocomplete="username"></div>
+      <div class="field"><label>Password</label><div class="password"><input id="password" type="password" placeholder="Enter password"><button type="button" class="small-btn" onclick="togglePassword()">Show</button></div></div>
+      <button class="primary wide" type="submit">Sign in to portal</button>
+      <div id="loginError" class="error hidden"></div>
+    </form>
+    <div class="demo" id="demoText"><b>Employee demo</b><br>Username: arun.kumar@codexcel.com<br>Password: Arun Kumar</div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="side">
+    <div class="brand"><div class="logo-mark">CX</div><strong>CodeXcel Portal</strong></div>
+    <div class="nav">
+      <button data-page="dashboard" onclick="go('dashboard')">⌂ &nbsp; Dashboard</button>
+      <button data-page="directory" onclick="go('directory')">▦ &nbsp; Employee Directory</button>
+      <button data-page="departments" onclick="go('departments')">◫ &nbsp; Departments</button>
+      <button data-page="analytics" onclick="go('analytics')">◒ &nbsp; Analytics</button>
+    </div>
+    <div class="side-bottom"><div id="miniUser" class="user-mini"></div><button class="ghost wide" onclick="logout()">Sign out</button></div>
+  </aside>
+  <main class="main">
+    <div class="top"><div><h2 id="pageTitle">Dashboard</h2><p id="pageSub">Employee overview and operational insights</p></div><div class="top-actions"><span id="roleBadge" class="badge"></span><button id="addBtn" class="primary hidden" onclick="openEmployeeModal()">+ Add Employee</button></div></div>
+    <div id="page"></div>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-box"><button class="close" onclick="closeModal()">✕</button><h3 id="modalTitle">Employee Profile</h3><div id="modalBody"></div></div></div>
+<div id="toast" class="toast"></div>
+
+<script>
+const seedEmployees = [{"id":"EMP001","name":"Arun Kumar","email":"arun.kumar@codexcel.com","phone":"9876543210","department":"Engineering","role":"Software Engineer","location":"Chennai","manager":"Priya Menon","present":22,"absent":2,"avgHours":8.1,"assigned":3,"completed":3,"performance":91,"experience":"4 years","status":"Active"},{"id":"EMP002","name":"Priya Menon","email":"priya.menon@codexcel.com","phone":"9876543211","department":"Engineering","role":"Senior Software Engineer","location":"Coimbatore","manager":"Rajesh Kumar","present":23,"absent":1,"avgHours":9.0,"assigned":5,"completed":5,"performance":95,"experience":"5 years","status":"Active"},{"id":"EMP003","name":"Ramesh Kumar","email":"ramesh.kumar@codexcel.com","phone":"9876543212","department":"Engineering","role":"Software Engineer","location":"Madurai","manager":"Priya Menon","present":15,"absent":8,"avgHours":6.4,"assigned":2,"completed":1,"performance":72,"experience":"1 years","status":"Inactive"},{"id":"EMP004","name":"Divya S","email":"divya.s@codexcel.com","phone":"9876543213","department":"Human Resources","role":"HR Executive","location":"Chennai","manager":"Meena Ravi","present":24,"absent":0,"avgHours":8.4,"assigned":4,"completed":4,"performance":93,"experience":"4 years","status":"Active"},{"id":"EMP005","name":"Karthik R","email":"karthik.r@codexcel.com","phone":"9876543214","department":"Finance","role":"Financial Analyst","location":"Bengaluru","manager":"Anitha Raj","present":23,"absent":1,"avgHours":8.7,"assigned":4,"completed":3,"performance":89,"experience":"4 years","status":"Active"},{"id":"EMP006","name":"Meena Ravi","email":"meena.ravi@codexcel.com","phone":"9876543215","department":"Human Resources","role":"HR Manager","location":"Chennai","manager":"Rajesh Kumar","present":24,"absent":0,"avgHours":8.9,"assigned":6,"completed":6,"performance":96,"experience":"5 years","status":"Active"},{"id":"EMP007","name":"Vignesh P","email":"vignesh.p@codexcel.com","phone":"9876543216","department":"Engineering","role":"Frontend Developer","location":"Coimbatore","manager":"Priya Menon","present":22,"absent":2,"avgHours":8.2,"assigned":3,"completed":2,"performance":88,"experience":"4 years","status":"Active"},{"id":"EMP008","name":"Anitha Raj","email":"anitha.raj@codexcel.com","phone":"9876543217","department":"Finance","role":"Finance Manager","location":"Bengaluru","manager":"Rajesh Kumar","present":23,"absent":1,"avgHours":9.1,"assigned":7,"completed":6,"performance":94,"experience":"4 years","status":"Active"},{"id":"EMP009","name":"Sanjay M","email":"sanjay.m@codexcel.com","phone":"9876543218","department":"Engineering","role":"Backend Developer","location":"Chennai","manager":"Priya Menon","present":21,"absent":3,"avgHours":7.9,"assigned":3,"completed":3,"performance":86,"experience":"3 years","status":"Active"},{"id":"EMP010","name":"Keerthana V","email":"keerthana.v@codexcel.com","phone":"9876543219","department":"Marketing","role":"Marketing Executive","location":"Erode","manager":"Lakshmi Devi","present":24,"absent":0,"avgHours":8.6,"assigned":3,"completed":3,"performance":92,"experience":"4 years","status":"Active"},{"id":"EMP011","name":"Lakshmi Devi","email":"lakshmi.devi@codexcel.com","phone":"9876543220","department":"Marketing","role":"Marketing Manager","location":"Erode","manager":"Rajesh Kumar","present":23,"absent":1,"avgHours":8.8,"assigned":6,"completed":5,"performance":94,"experience":"4 years","status":"Active"},{"id":"EMP012","name":"Harish N","email":"harish.n@codexcel.com","phone":"9876543221","department":"Sales","role":"Sales Executive","location":"Salem","manager":"Mohan Das","present":22,"absent":2,"avgHours":8.0,"assigned":4,"completed":3,"performance":87,"experience":"3 years","status":"Active"},{"id":"EMP013","name":"Mohan Das","email":"mohan.das@codexcel.com","phone":"9876543222","department":"Sales","role":"Sales Manager","location":"Salem","manager":"Rajesh Kumar","present":24,"absent":0,"avgHours":9.2,"assigned":8,"completed":7,"performance":96,"experience":"5 years","status":"Active"},{"id":"EMP014","name":"Aishwarya K","email":"aishwarya.k@codexcel.com","phone":"9876543223","department":"Engineering","role":"UI/UX Designer","location":"Chennai","manager":"Priya Menon","present":23,"absent":1,"avgHours":8.5,"assigned":3,"completed":3,"performance":91,"experience":"4 years","status":"Active"},{"id":"EMP015","name":"Rahul S","email":"rahul.s@codexcel.com","phone":"9876543224","department":"IT Support","role":"System Administrator","location":"Coimbatore","manager":"Ganesh B","present":22,"absent":2,"avgHours":8.3,"assigned":4,"completed":4,"performance":90,"experience":"4 years","status":"Active"},{"id":"EMP016","name":"Ganesh B","email":"ganesh.b@codexcel.com","phone":"9876543225","department":"IT Support","role":"IT Manager","location":"Coimbatore","manager":"Rajesh Kumar","present":24,"absent":0,"avgHours":9.0,"assigned":7,"completed":7,"performance":95,"experience":"5 years","status":"Active"},{"id":"EMP017","name":"Pooja R","email":"pooja.r@codexcel.com","phone":"9876543226","department":"Engineering","role":"QA Engineer","location":"Chennai","manager":"Priya Menon","present":23,"absent":1,"avgHours":8.6,"assigned":4,"completed":4,"performance":92,"experience":"4 years","status":"Active"},{"id":"EMP018","name":"Dinesh K","email":"dinesh.k@codexcel.com","phone":"9876543227","department":"Engineering","role":"DevOps Engineer","location":"Bengaluru","manager":"Priya Menon","present":22,"absent":2,"avgHours":8.4,"assigned":4,"completed":3,"performance":89,"experience":"4 years","status":"Active"},{"id":"EMP019","name":"Swetha M","email":"swetha.m@codexcel.com","phone":"9876543228","department":"Marketing","role":"Content Specialist","location":"Erode","manager":"Lakshmi Devi","present":23,"absent":1,"avgHours":8.1,"assigned":3,"completed":3,"performance":88,"experience":"4 years","status":"Active"},{"id":"EMP020","name":"Nithya K","email":"nithya.k@codexcel.com","phone":"9876543229","department":"Sales","role":"Sales Executive","location":"Salem","manager":"Mohan Das","present":14,"absent":10,"avgHours":6.0,"assigned":2,"completed":1,"performance":69,"experience":"1 years","status":"Inactive"},{"id":"EMP021","name":"Ajay V","email":"ajay.v@codexcel.com","phone":"9876543230","department":"Finance","role":"Accountant","location":"Bengaluru","manager":"Anitha Raj","present":22,"absent":2,"avgHours":8.0,"assigned":4,"completed":4,"performance":87,"experience":"3 years","status":"Active"},{"id":"EMP022","name":"Monika P","email":"monika.p@codexcel.com","phone":"9876543231","department":"Human Resources","role":"Recruiter","location":"Chennai","manager":"Meena Ravi","present":24,"absent":0,"avgHours":8.7,"assigned":4,"completed":4,"performance":93,"experience":"4 years","status":"Active"},{"id":"EMP023","name":"Surya R","email":"surya.r@codexcel.com","phone":"9876543232","department":"Engineering","role":"Data Analyst","location":"Coimbatore","manager":"Priya Menon","present":23,"absent":1,"avgHours":8.8,"assigned":4,"completed":4,"performance":94,"experience":"4 years","status":"Active"},{"id":"EMP024","name":"Lavanya T","email":"lavanya.t@codexcel.com","phone":"9876543233","department":"Engineering","role":"Product Designer","location":"Chennai","manager":"Priya Menon","present":22,"absent":2,"avgHours":8.3,"assigned":3,"completed":2,"performance":88,"experience":"4 years","status":"Active"},{"id":"EMP025","name":"Naveen G","email":"naveen.g@codexcel.com","phone":"9876543234","department":"IT Support","role":"Network Engineer","location":"Madurai","manager":"Ganesh B","present":23,"absent":1,"avgHours":8.5,"assigned":4,"completed":4,"performance":91,"experience":"4 years","status":"Active"},{"id":"EMP026","name":"Deepa S","email":"deepa.s@codexcel.com","phone":"9876543235","department":"Finance","role":"Payroll Executive","location":"Bengaluru","manager":"Anitha Raj","present":24,"absent":0,"avgHours":8.9,"assigned":5,"completed":5,"performance":94,"experience":"4 years","status":"Active"},{"id":"EMP027","name":"Suresh B","email":"suresh.b@codexcel.com","phone":"9876543236","department":"IT Support","role":"Technical Support","location":"Madurai","manager":"Ganesh B","present":12,"absent":12,"avgHours":5.8,"assigned":2,"completed":1,"performance":65,"experience":"1 years","status":"Inactive"},{"id":"EMP028","name":"Riya N","email":"riya.n@codexcel.com","phone":"9876543237","department":"Marketing","role":"Social Media Specialist","location":"Erode","manager":"Lakshmi Devi","present":23,"absent":1,"avgHours":8.4,"assigned":3,"completed":3,"performance":90,"experience":"4 years","status":"Active"},{"id":"EMP029","name":"Vijay A","email":"vijay.a@codexcel.com","phone":"9876543238","department":"Sales","role":"Business Development Executive","location":"Salem","manager":"Mohan Das","present":22,"absent":2,"avgHours":8.2,"assigned":4,"completed":3,"performance":89,"experience":"4 years","status":"Active"},{"id":"EMP030","name":"Janani P","email":"janani.p@codexcel.com","phone":"9876543239","department":"Human Resources","role":"Training Coordinator","location":"Chennai","manager":"Meena Ravi","present":23,"absent":1,"avgHours":8.6,"assigned":4,"completed":4,"performance":92,"experience":"4 years","status":"Active"}];
+let employees = JSON.parse(localStorage.getItem('codexcelEmployees') || 'null') || seedEmployees;
+localStorage.setItem('codexcelEmployees',JSON.stringify(employees));
+let currentUser=null, loginType='employee', currentPage='dashboard', showInactive=false;
+
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem('codexcelEmployees',JSON.stringify(employees))}
+function initials(n){return n.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase()}
+function setLoginType(t){
+ loginType=t;$('empTab').classList.toggle('active',t==='employee');$('adminTab').classList.toggle('active',t==='admin');
+ $('userLabel').textContent=t==='admin'?'Administrator username':'Employee username';
+ $('username').placeholder=t==='admin'?'admin@codexcel.com':'employee email';
+ $('demoText').innerHTML=t==='admin'?'<b>Administrator demo</b><br>Username: admin@codexcel.com<br>Password: Admin123':'<b>Employee demo</b><br>Username: arun.kumar@codexcel.com<br>Password: Arun Kumar';
+ $('loginError').classList.add('hidden');
+}
+function togglePassword(){let x=$('password');x.type=x.type==='password'?'text':'password';event.target.textContent=x.type==='password'?'Show':'Hide'}
+function login(e){
+ e.preventDefault();let u=$('username').value.trim(),p=$('password').value,err='';
+ if(!u)err='Enter a valid username.';
+ else if(!p)err='Enter your password.';
+ else if(loginType==='admin'){
+   if(u!=='admin@codexcel.com'||p!=='Admin123')err='Invalid administrator username or password.';
+   else currentUser={type:'admin',name:'Administrator',email:u};
+ }else{
+   let emp=employees.find(x=>x.email.toLowerCase()===u.toLowerCase());
+   if(!emp)err='Enter a valid username. Employee account not found.';
+   else if(emp.status!=='Active')err='You are not an active member. Please contact HR or the administrator.';
+   else if(p!==emp.name)err='Invalid username or password.';
+   else currentUser={type:'employee',name:emp.name,email:emp.email,id:emp.id};
+ }
+ if(err){$('loginError').textContent=err;$('loginError').classList.remove('hidden');return}
+ $('login').classList.add('hidden');$('app').classList.remove('hidden');$('roleBadge').textContent=currentUser.type==='admin'?'ADMINISTRATOR':'EMPLOYEE';
+ $('miniUser').innerHTML='<b>'+currentUser.name+'</b><br><span class="muted">'+currentUser.email+'</span>';
+ $('addBtn').classList.toggle('hidden',currentUser.type!=='admin');go('dashboard');
+}
+function logout(){currentUser=null;$('app').classList.add('hidden');$('login').classList.remove('hidden');$('password').value='';$('username').value='';setLoginType('employee')}
+function go(page){currentPage=page;document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));render()}
+function render(){
+ const titles={dashboard:['Dashboard','Employee overview and operational insights'],directory:['Employee Directory','Search, browse and manage employee contact records'],departments:['Departments','Employees grouped by organizational department'],analytics:['Analytics','Performance, attendance and project insights']};
+ $('pageTitle').textContent=titles[currentPage][0];$('pageSub').textContent=titles[currentPage][1];
+ if(currentPage==='dashboard')dashboard(); if(currentPage==='directory')directory(); if(currentPage==='departments')departments(); if(currentPage==='analytics')analytics();
+}
+function visibleEmployees(){return currentUser.type==='admin'?(showInactive?employees:employees.filter(x=>x.status==='Active')):employees.filter(x=>x.status==='Active')}
+function dashboard(){
+ let active=employees.filter(x=>x.status==='Active'),inactive=employees.filter(x=>x.status==='Inactive');
+ let mine=currentUser.type==='employee'?employees.find(x=>x.email===currentUser.email):null;
+ if(mine){$('page').innerHTML=employeeDashboard(mine);return}
+ let perf=Math.round(active.reduce((s,x)=>s+x.performance,0)/active.length);
+ $('page').innerHTML=`<div class="grid">
+ <div class="card"><div class="label">Active Employees</div><div class="metric">${active.length}</div><div class="muted">Currently available</div></div>
+ <div class="card"><div class="label">Inactive Records</div><div class="metric">${inactive.length}</div><div class="muted">Admin visibility</div></div>
+ <div class="card"><div class="label">Departments</div><div class="metric">${new Set(employees.map(x=>x.department)).size}</div><div class="muted">Organizational groups</div></div>
+ <div class="card"><div class="label">Avg Performance</div><div class="metric">${perf}%</div><div class="muted">Active workforce</div></div></div>
+ <div class="content-grid"><div class="card"><div class="section-title"><h3>Quick Directory</h3><button class="ghost" onclick="go('directory')">Open directory</button></div>${miniRows(active.slice(0,6))}</div><div class="card"><div class="section-title"><h3>Department Performance</h3></div>${departmentBars()}</div></div>`;
+}
+function employeeDashboard(x){
+ return `<div class="profile"><div class="profile-head"><div class="profile-id"><div class="avatar">${initials(x.name)}</div><div><div class="profile-name">${x.name}</div><div class="muted">${x.role} • ${x.department}</div><span class="status active-status">ACTIVE</span></div></div><button class="primary" onclick="openProfile('${x.id}')">View Full Profile</button></div>
+ <div class="grid" style="margin-top:15px"><div class="card"><div class="label">Attendance</div><div class="metric">${Math.round(x.present/(x.present+x.absent)*100)}%</div></div><div class="card"><div class="label">Performance</div><div class="metric">${x.performance}%</div></div><div class="card"><div class="label">Hours / Day</div><div class="metric">${x.avgHours}</div></div><div class="card"><div class="label">Projects</div><div class="metric">${x.completed}/${x.assigned}</div></div></div>
+ <div class="section card"><div class="section-title"><h3>My Information</h3></div><div class="profile-grid">${info('Employee ID',x.id)}${info('Email',x.email)}${info('Phone',x.phone)}${info('Location',x.location)}${info('Manager',x.manager)}${info('Experience',x.experience)}</div></div></div>`;
+}
+function info(k,v){return `<div class="info"><small>${k}</small><b>${v}</b></div>`}
+function miniRows(arr){return `<div class="table-wrap"><table class="table"><thead><tr><th>Employee</th><th>Department</th><th>Role</th><th>Status</th></tr></thead><tbody>${arr.map(x=>`<tr><td><b>${x.name}</b><br><span class="muted">${x.id}</span></td><td>${x.department}</td><td>${x.role}</td><td><span class="status active-status">Active</span></td></tr>`).join('')}</tbody></table></div>`}
+function directory(){
+ let arr=visibleEmployees();
+ $('page').innerHTML=`<div class="card"><div class="toolbar"><input id="search" oninput="filterDirectory()" placeholder="Search name, ID, email, department or role..."><select id="dept" onchange="filterDirectory()"><option value="">All departments</option>${[...new Set(employees.map(x=>x.department))].sort().map(d=>`<option>${d}</option>`).join('')}</select>${currentUser.type==='admin'?`<label style="display:flex;align-items:center;gap:7px;padding:0 8px;color:#9cafc3;font-size:12px"><input id="inactiveToggle" type="checkbox" onchange="toggleInactive()"> Show inactive</label>`:''}</div><div id="directoryTable"></div></div>`;
+ filterDirectory();
+}
+function toggleInactive(){showInactive=$('inactiveToggle').checked;filterDirectory()}
+function filterDirectory(){
+ let q=($('search')?.value||'').toLowerCase(),d=$('dept')?.value||'',arr=visibleEmployees().filter(x=>(!q||[x.id,x.name,x.email,x.department,x.role,x.phone,x.location].join(' ').toLowerCase().includes(q))&&(!d||x.department===d));
+ $('directoryTable').innerHTML=`<div class="table-wrap"><table class="table"><thead><tr><th>Employee</th><th>Department</th><th>Role</th><th>Contact</th><th>Status</th><th>Action</th></tr></thead><tbody>${arr.map(x=>`<tr><td><b>${x.name}</b><br><span class="muted">${x.id}</span></td><td>${x.department}</td><td>${x.role}</td><td>${x.email}<br>${x.phone}</td><td><span class="status ${x.status==='Active'?'active-status':'inactive-status'}">${x.status}</span></td><td><div class="actions"><button onclick="openProfile('${x.id}')">Profile</button>${currentUser.type==='admin'?`<button onclick="editEmployee('${x.id}')">Edit</button><button onclick="toggleStatus('${x.id}')">${x.status==='Active'?'Deactivate':'Activate'}</button><button class="red" onclick="removeEmployee('${x.id}')">Remove</button>`:''}</div></td></tr>`).join('')||'<tr><td colspan="6" class="muted">No matching employees found.</td></tr>'}</tbody></table></div>`;
+}
+function departments(){
+ let groups={};employees.filter(x=>x.status==='Active').forEach(x=>(groups[x.department]??=[]).push(x));
+ $('page').innerHTML=Object.entries(groups).map(([d,a])=>`<div class="section card"><div class="section-title"><h3>${d}</h3><span class="badge">${a.length} employees</span></div>${miniRows(a)}</div>`).join('');
+}
+function departmentBars(){
+ let groups={};employees.filter(x=>x.status==='Active').forEach(x=>(groups[x.department]??=[]).push(x));
+ let vals=Object.entries(groups).map(([d,a])=>[d,Math.round(a.reduce((s,x)=>s+x.performance,0)/a.length)]);
+ let max=Math.max(...vals.map(x=>x[1]));
+ return `<div class="bars">${vals.map(([d,v])=>`<div class="bar-col"><div class="bar" style="height:${Math.max(35,v/max*160)}px"></div><b>${v}%</b><span>${d.split(' ')[0]}</span></div>`).join('')}</div>`;
+}
+function analytics(){
+ let active=employees.filter(x=>x.status==='Active'),avg=Math.round(active.reduce((s,x)=>s+x.performance,0)/active.length),assigned=active.reduce((s,x)=>s+x.assigned,0),completed=active.reduce((s,x)=>s+x.completed,0),hours=active.reduce((s,x)=>s+x.avgHours*22,0);
+ $('page').innerHTML=`<div class="grid"><div class="card"><div class="label">Average Performance</div><div class="metric">${avg}%</div></div><div class="card"><div class="label">Projects Assigned</div><div class="metric">${assigned}</div></div><div class="card"><div class="label">Projects Completed</div><div class="metric">${completed}</div></div><div class="card"><div class="label">Estimated Monthly Hours</div><div class="metric">${Math.round(hours)}</div></div></div><div class="section card"><div class="section-title"><h3>Performance by Department</h3></div>${departmentBars()}</div>`;
+}
+function openProfile(id){
+ let x=employees.find(e=>e.id===id);if(!x)return;
+ let att=Math.round(x.present/(x.present+x.absent)*100), rate=Math.round(x.completed/x.assigned*100);
+ $('modalTitle').textContent='Full Employee Profile';
+ $('modalBody').innerHTML=`<div class="profile-head"><div class="profile-id"><div class="avatar">${initials(x.name)}</div><div><div class="profile-name">${x.name}</div><div class="muted">${x.role} • ${x.department}</div><span class="status ${x.status==='Active'?'active-status':'inactive-status'}">${x.status.toUpperCase()}</span></div></div></div><div class="profile-grid">${info('Employee ID',x.id)}${info('Email',x.email)}${info('Phone',x.phone)}${info('Location',x.location)}${info('Manager',x.manager)}${info('Experience',x.experience)}${info('Present Days',x.present)}${info('Absent Days',x.absent)}${info('Attendance',att+'%')}${info('Average Hours / Day',x.avgHours)}${info('Performance',x.performance+'%')}${info('Projects',x.completed+'/'+x.assigned)}${info('Project Completion',rate+'%')}</div>${currentUser.type==='admin'?`<div style="display:flex;gap:8px;margin-top:16px"><button class="primary" onclick="closeModal();editEmployee('${x.id}')">Edit Profile</button><button class="ghost" onclick="toggleStatus('${x.id}');closeModal()"> ${x.status==='Active'?'Deactivate':'Activate'} </button></div>`:''}`;
+ $('modal').classList.remove('hidden');
+}
+function openEmployeeModal(id=null){
+ let x=id?employees.find(e=>e.id===id):null;
+ $('modalTitle').textContent=x?'Edit Employee':'Add Employee';
+ let v=(k)=>x?.[k]||'';
+ $('modalBody').innerHTML=`<form onsubmit="saveEmployee(event,'${id||''}')"><div class="form-grid">
+ ${field('Employee ID','id',x?v('id'):'EMP'+String(employees.length+1).padStart(3,'0'),id?'readonly':'')}
+ ${field('Full Name','name',v('name'))}${field('Email','email',v('email'))}${field('Phone','phone',v('phone'))}
+ ${field('Department','department',v('department'))}${field('Role','role',v('role'))}${field('Location','location',v('location'))}${field('Manager','manager',v('manager'))}
+ ${field('Present Days','present',x?v('present'):22)}${field('Absent Days','absent',x?v('absent'):1)}${field('Avg Hours / Day','avgHours',x?v('avgHours'):8.5)}${field('Experience','experience',x?v('experience'):'2 years')}
+ ${field('Projects Assigned','assigned',x?v('assigned'):3)}${field('Projects Completed','completed',x?v('completed'):2)}${field('Performance %','performance',x?v('performance'):88)}
+ </div><div style="margin-top:16px"><button class="primary wide" type="submit">${x?'Save Changes':'Create Employee'}</button></div></form>`;
+ $('modal').classList.remove('hidden');
+}
+function field(label,key,val,extra=''){return `<div class="field"><label>${label}</label><input name="${key}" value="${String(val).replace(/"/g,'&quot;')}" ${extra} required></div>`}
+function editEmployee(id){openEmployeeModal(id)}
+function saveEmployee(e,id){
+ e.preventDefault();let f=new FormData(e.target),o=Object.fromEntries(f.entries());
+ if(id){let x=employees.find(a=>a.id===id);Object.keys(o).forEach(k=>{x[k]=o[k]});['present','absent','avgHours','assigned','completed','performance'].forEach(k=>x[k]=Number(x[k]));}
+ else{if(employees.some(x=>x.id===o.id)){alert('Employee ID already exists');return}o.present=Number(o.present);o.absent=Number(o.absent);o.avgHours=Number(o.avgHours);o.assigned=Number(o.assigned);o.completed=Number(o.completed);o.performance=Number(o.performance);o.status='Active';employees.push(o)}
+ save();closeModal();toast(id?'Employee updated successfully':'Employee added successfully');render();
+}
+function toggleStatus(id){let x=employees.find(e=>e.id===id);if(!x)return;x.status=x.status==='Active'?'Inactive':'Active';save();toast(x.name+' is now '+x.status);render()}
+function removeEmployee(id){let x=employees.find(e=>e.id===id);if(!x)return;if(confirm('Remove '+x.name+' from the directory?')){employees=employees.filter(e=>e.id!==id);save();toast('Employee removed');render()}}
+function closeModal(){$('modal').classList.add('hidden')}
+function toast(s){$('toast').textContent=s;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',2200)}
+</script>
+</body>
+</html>
