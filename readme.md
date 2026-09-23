@@ -1,7 +1,7 @@
 # Employee Directory & Contact Management System
 
 **Problem Statement:** PS18
-**Team Name:** TechNova
+**Team Name:** CodeXcel
 **Hackathon:** BIZ HACK'26
 
 ## 📌 Description
@@ -25,6 +25,8 @@ A web-based employee directory system that helps organizations manage and access
 * CSS3
 * JavaScript
 * LocalStorage
+* Node.js
+* REST API
 
 ## 📸 Screenshots
 
@@ -32,7 +34,7 @@ A web-based employee directory system that helps organizations manage and access
 
 ![Dashboard](screenshots/dashboard.png)
 
-![Employee Directory](screenshots/employee-directory.png)
+![Employee Directory](screenshots/employee_directory.png)
 
 ![Departments](screenshots/departments.png)
 
@@ -41,11 +43,11 @@ A web-based employee directory system that helps organizations manage and access
 ## 🚀 How to Run
 
 1. Clone or download the repository.
-2. Open `index.html` in a browser.
+2. Open `codexcel.html` in a browser.
 3. Login using the demo credentials.
 
 ## 👥 Team
 
-**TechNova – BIZ HACK'26**
+**CodeXcel – BIZ HACK'26**
 
 **PS18 – Employee Directory & Contact Management System**
